@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class OrderBookTest {
 
-    private final OrderBook orderBook;
+    private final OrderBook orderBook = new StreamOrderBook();
 
     Order order1 = new Order.Builder("Peter")
             .withProduct(new Product(ProductType.PAPER, 1000))
@@ -37,9 +37,6 @@ class OrderBookTest {
             .withProduct(new Product(ProductType.PIPING, 42))
             .build();
 
-    OrderBookTest(OrderBook orderBook) {
-        this.orderBook = orderBook;
-    }
 
     @Test
     void orderBookIsInitiallyEmpty() {

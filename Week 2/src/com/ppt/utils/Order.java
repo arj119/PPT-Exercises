@@ -18,8 +18,12 @@ public class Order {
         return customerName;
     }
 
-    public Stream<Product> getProducts() {
+    public Stream<Product> getProductsStream() {
         return products.stream();
+    }
+
+    public List<Product> getProducts() {
+        return products;
     }
 
     @Override
