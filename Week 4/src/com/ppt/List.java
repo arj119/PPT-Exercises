@@ -1,9 +1,13 @@
 package com.ppt;
 
+
 /**
+ * Number - superclass
+ * Integer, Double, Float, BigInteger... Numeric types
+ * 
  * An interface for a list that holds integers
  */
-public interface IntegerList {
+public interface List<T> {
   /**
    * Returns the size of the list
    *
@@ -24,7 +28,7 @@ public interface IntegerList {
    * @param n element to be found
    * @return index in list. If not found in list returns -1
    */
-  int indexOf(int n);
+  int indexOf(T n);
 
   /**
    * Checks whether list contains element
@@ -32,14 +36,14 @@ public interface IntegerList {
    * @param n element to search for
    * @return true if the element is in the list
    */
-  boolean contains(int n);
+  boolean contains(T n);
 
   /**
    * Adds an element to the end of the list
    *
    * @param n element to be added
    */
-  void add(int n);
+  void add(T n);
 
   /**
    * Removes the first occurence of an element from the list
@@ -47,7 +51,7 @@ public interface IntegerList {
    * @param n element to be removed
    * @return true if the element was found and successfully removed
    */
-  boolean remove(int n);
+  boolean remove(T n);
 
   /** Clears the list of all elements */
   void clear();
@@ -67,5 +71,5 @@ public interface IntegerList {
    * @param index position in the list to which the element is inserted
    * @param n element to be inserted
    */
-  void insert(int index, int n);
+  void insert(int index, T n);
 }
