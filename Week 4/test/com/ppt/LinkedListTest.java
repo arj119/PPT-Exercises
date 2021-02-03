@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LinkedListTest {
 
-  LinkedList list = new LinkedList();
+  LinkedList<Integer> list = new LinkedList<>();
 
   @Test
   void addingElementsToListIncreasesSize() {
