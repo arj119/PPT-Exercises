@@ -1,7 +1,5 @@
 package com.ppt;
 
-import com.ppt.web.Url;
-
 /**
  * WebCache interface to implement. Represents a cache that can be used to speed up web pages
  *
@@ -13,16 +11,6 @@ import com.ppt.web.Url;
  * 3. Store page contents received in Cache and return to requester
  * EXTENSION:
  * 4. If the cache is finitely sized remove an entry from the cache and replace it with
- *    the latest fetched.
- *
+ *    the latest fetched. Think about how to choose the entry to be evicted.
  */
-public interface WebCache {
-  /**
-   * A url fetching service
-   *
-   * @param url to fetch
-   * @return page contents associated with that url. If not available in the cache it should be
-   *     fetched from the WebService
-   */
-  String fetchUrl(Url url);
-}
+
