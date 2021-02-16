@@ -1,4 +1,4 @@
-package com.ppt;
+package com.ppt.part1;
 
 public class Main {
 
@@ -11,6 +11,7 @@ public class Main {
         }
 
         for (int i = 0; i < philosophers.length; i++) {
+            // Create 5 philosopher's and assign their left and write chopsticks
             Chopstick leftChopstick = chopsticks[i];
             Chopstick rightChopstick = chopsticks[(i + 1) % chopsticks.length];
 

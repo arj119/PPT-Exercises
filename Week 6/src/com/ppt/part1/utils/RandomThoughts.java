@@ -1,4 +1,4 @@
-package com.ppt.utils;
+package com.ppt.part1.utils;
 
 import java.util.List;
 import java.util.Random;

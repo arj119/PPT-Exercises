@@ -1,6 +1,6 @@
-package com.ppt;
+package com.ppt.part1;
 
-import com.ppt.utils.RandomThoughts;
+import com.ppt.part1.utils.RandomThoughts;
 
 import java.util.Random;
 
