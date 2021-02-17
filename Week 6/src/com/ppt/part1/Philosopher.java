@@ -1,18 +1,22 @@
 package com.ppt.part1;
 
 import com.ppt.part1.utils.RandomThoughts;
+import java.util.*;
 
 import java.util.Random;
 
 public class Philosopher implements Runnable {
   private static final int MAX_WAITING_TIME_MS = 10;
   private static final Random GEN = new Random();
-  private final Chopstick leftChopstick;
-  private final Chopstick rightChopstick;
+  private final Chopstick fstChopstick;
+  private final Chopstick sndChopstick;
 
   public Philosopher(Chopstick leftChopstick, Chopstick rightChopstick) {
-    this.leftChopstick = leftChopstick;
-    this.rightChopstick = rightChopstick;
+    Chopstick[] chopsticks = { leftChopstick, rightChopstick };
+    Arrays.sort(chopsticks, (c1, c2) -> c1.getId() - c2.getId());
+
+    this.fstChopstick = chopsticks[0];
+    this.sndChopstick = chopsticks[1];
   }
 
   @Override
@@ -20,9 +24,9 @@ public class Philosopher implements Runnable {
     try {
       while (true) {
         think();
-        synchronized (leftChopstick) {
+        synchronized (fstChopstick) {
           pick_up_left_chopstick();
-          synchronized (rightChopstick) {
+          synchronized (sndChopstick) {
             pick_up_right_chopstick();
             eat();
             put_down_right_chopstick();

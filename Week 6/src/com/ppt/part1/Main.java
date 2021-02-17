@@ -7,7 +7,7 @@ public class Main {
         Chopstick[] chopsticks = new Chopstick[philosophers.length];
 
         for (int i = 0; i < chopsticks.length; i++) {
-            chopsticks[i] = new Chopstick();
+            chopsticks[i] = new Chopstick(i);
         }
 
         for (int i = 0; i < philosophers.length; i++) {

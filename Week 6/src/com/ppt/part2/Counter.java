@@ -1,13 +1,16 @@
 package com.ppt.part2;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Counter {
-  private int count = 0;
+  private AtomicInteger count = new AtomicInteger(0);
 
   public int increment() {
-    return ++count;
+    // ++count
+    return count.incrementAndGet();
   }
 
   public int getCount() {
-    return count;
+    return count.get();
   }
 }
