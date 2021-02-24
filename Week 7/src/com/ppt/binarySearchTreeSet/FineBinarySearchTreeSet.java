@@ -139,7 +139,7 @@ public class FineBinarySearchTreeSet<E extends Comparable<E>> implements Concurr
   }
 
   private void toListRecursive(Node current, List<E> list) {
-    if(current == null) return;
+    if (current == null) return;
 
     toListRecursive(current.left, list);
     list.add(current.data);
