@@ -1,5 +1,7 @@
 package com.ppt;
 
+import java.util.List;
+
 public interface ConcurrentSet<E> {
   /**
    * Returns the number of elements in this set (its cardinality).  If this
@@ -63,4 +65,10 @@ public interface ConcurrentSet<E> {
    */
   boolean remove(E o);
 
+  /**
+   * Returns the contents of the set to a list
+   *
+   * @return the contents of the set as a List
+   */
+  List<E> toList();
 }
