@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FineBinarySearchTreeSet<E extends Comparable<E>> implements ConcurrentSet<E> {
-  private int size = 0;
+  private volatile int size = 0;
   private Node root = null;
 
   @Override
@@ -152,8 +152,8 @@ public class FineBinarySearchTreeSet<E extends Comparable<E>> implements Concurr
 
   private class Node {
     E data;
-    Node left;
-    Node right;
+    volatile Node left;
+    volatile Node right;
 
     Node(E data) {
       this.data = data;

@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CoarseBinarySearchTreeSet<E extends Comparable<E>> implements ConcurrentSet<E> {
-  private int size = 0;
+  private volatile int size = 0;
   private Node root = null;
 
   @Override
-  public int size() {
+  public synchronized int size() {
     return size;
   }
 
   @Override
-  public boolean isEmpty() {
+  public synchronized boolean isEmpty() {
     return size == 0;
   }
 
   @Override
-  public boolean contains(E o) {
+  public synchronized boolean contains(E o) {
     return containsNodeRecursive(root, o);
   }
 
@@ -42,7 +42,7 @@ public class CoarseBinarySearchTreeSet<E extends Comparable<E>> implements Concu
   }
 
   @Override
-  public boolean add(E e) {
+  public synchronized boolean add(E e) {
     // duplicate check
     if (contains(e)) return false;
 
@@ -77,7 +77,7 @@ public class CoarseBinarySearchTreeSet<E extends Comparable<E>> implements Concu
   }
 
   @Override
-  public boolean remove(E o) {
+  public synchronized boolean remove(E o) {
     // Set is empty or does not contain element
     if (isEmpty() || !contains(o)) return false;
 
@@ -152,8 +152,8 @@ public class CoarseBinarySearchTreeSet<E extends Comparable<E>> implements Concu
 
   private class Node {
     E data;
-    Node left;
-    Node right;
+    volatile Node left;
+    volatile Node right;
 
     Node(E data) {
       this.data = data;

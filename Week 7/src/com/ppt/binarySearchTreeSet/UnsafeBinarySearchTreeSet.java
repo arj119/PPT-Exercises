@@ -94,6 +94,7 @@ public class UnsafeBinarySearchTreeSet<E extends Comparable<E>> implements Concu
 
   private Node removeRecursive(Node current, E value) {
     if (current == null) {
+      // end of branch is reached
       return null;
     }
 
@@ -131,6 +132,10 @@ public class UnsafeBinarySearchTreeSet<E extends Comparable<E>> implements Concu
     return node;
   }
 
+  private E findSmallestValue(Node node) {
+    return node.left == null ? node.data : findSmallestValue(node.left);
+  }
+
   @Override
   public List<E> toList() {
     List<E> list = new ArrayList<>();
@@ -144,10 +149,6 @@ public class UnsafeBinarySearchTreeSet<E extends Comparable<E>> implements Concu
     toListRecursive(current.left, list);
     list.add(current.data);
     toListRecursive(current.right, list);
-  }
-
-  private E findSmallestValue(Node node) {
-    return node.left == null ? node.data : findSmallestValue(node.left);
   }
 
   private class Node {
