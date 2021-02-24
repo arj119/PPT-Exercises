@@ -2,6 +2,9 @@ package com.ppt.binarySearchTreeSet;
 
 import com.ppt.ConcurrentSet;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class BinarySearchTreeSet<E extends Comparable<E>> implements ConcurrentSet<E> {
   protected int size = 0;
   protected Node root = null;
@@ -126,6 +129,21 @@ public abstract class BinarySearchTreeSet<E extends Comparable<E>> implements Co
     node.data = smallestValue;
     node.right = removeRecursive(node.right, smallestValue);
     return node;
+  }
+
+  @Override
+  public List<E> toList() {
+    List<E> list = new ArrayList<>();
+    toListRecursive(root, list);
+    return list;
+  }
+
+  private void toListRecursive(Node current, List<E> list) {
+    if(current == null) return;
+
+    toListRecursive(current.left, list);
+    list.add(current.data);
+    toListRecursive(current.right, list);
   }
 
   protected E findSmallestValue(Node node) {
