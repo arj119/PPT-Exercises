@@ -2,10 +2,10 @@ package com.ppt.binarySearchTreeSet;
 
 import com.ppt.ConcurrentSetTest;
 
-class FineBinarySearchTreeSetTest extends ConcurrentSetTest<BinarySearchTreeSet<Integer>> {
+class FineBinarySearchTreeSetTest extends ConcurrentSetTest<FineBinarySearchTreeSet<Integer>> {
 
   @Override
-  protected BinarySearchTreeSet<Integer> createInstance() {
+  protected FineBinarySearchTreeSet<Integer> createInstance() {
     return new FineBinarySearchTreeSet<>();
   }
 }
